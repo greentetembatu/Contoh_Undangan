@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Countdown Timer
 const countdownElement = document.getElementById('countdown');
-const weddingDate = new Date('Januari 01, 2026 09:00:00').getTime(); // Ganti dengan tanggal dan waktu pernikahan Anda
+const weddingDate = new Date('Januari 22, 2027 09:00:00').getTime(); // Ganti dengan tanggal dan waktu pernikahan Anda
 
 function updateCountdown() {
     const now = new Date().getTime();
@@ -156,3 +156,10 @@ function displayGuestName() {
     }
 
 });
+
+
+
+
+
+
+
