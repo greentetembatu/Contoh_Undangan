@@ -128,6 +128,36 @@ function displayGuestName() {
 
 
 
+    // Buat instance Intersection Observer
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Amati setiap elemen yang memiliki class .animate-on-scroll
+    animateOnScrollElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // --- Tambahan: Animasi Panah Scroll-Hint ---
+    // Sembunyikan panah scroll-hint setelah user mulai scroll
+    const scrollHint = document.querySelector('.scroll-hint');
+    if (scrollHint) {
+        let isScrolling;
+        window.addEventListener('scroll', () => {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                if (window.scrollY > 50) { // Jika sudah scroll lebih dari 50px
+                    scrollHint.style.opacity = '0';
+                    scrollHint.style.pointerEvents = 'none'; // Agar tidak bisa diklik jika ada
+                } else {
+                    scrollHint.style.opacity = '1';
+                    scrollHint.style.pointerEvents = 'auto';
+                }
+            }, 66); // Berikan sedikit debounce
+        }, false);
+    }
+
+});
+
+
 
 
 
